@@ -10,7 +10,7 @@ createApp({
         return {
             grid: [],
             score: 0,
-            gameOver: false, // ¡IMPORTANTE! Empieza en false
+            gameOver: false, 
             playerName: '',
             topScores: [],
             // Apunta a tu API Laravel
