@@ -45,14 +45,20 @@ cd 2048-online
 Abre el XAMPP Control Panel.
 Inicia los módulos Apache y MySQL.
 Accede a phpMyAdmin y crea una nueva base de datos llamada laravel_2048.
-### 3. Configuración del Backend (Laravel)Instala las dependencias necesarias de PHP:Bashcomposer install
+### 3. Configuración del Backend (Laravel)Instala las dependencias necesarias de PHP:
+```
+composer install
+```
 Configura tu archivo de entorno:Crea una copia del archivo .env:Bashcp .env.example .env
-Abre el archivo .env y asegúrate de que la configuración de la base de datos coincida con XAMPP:Fragmento de códigoDB_CONNECTION=mysql
+Abre el archivo .env y asegúrate de que la configuración de la base de datos coincida con XAMPP:
+```php
+DB_CONNECTION=mysql
 DB_HOST=127.0.0.1
 DB_PORT=3306
 DB_DATABASE=laravel_2048
 DB_USERNAME=root
 DB_PASSWORD=
+```
 Genera la clave de la aplicación y ejecuta las migraciones:
 ```
 php artisan key:generate
@@ -138,13 +144,19 @@ Start the Apache and MySQL modules.
 Access phpMyAdmin and create a new database called laravel_2048.
 
 ### 3. Backend Configuration (Laravel) Install the necessary PHP dependencies: `Bashcomposer install`
-Configure your environment file: Create a copy of the .env file: `Bashcp .env.example .env`
-Open the .env file and ensure the database configuration matches XAMPP: Code snippet DB_CONNECTION=mysql
+Configure your environment file: Create a copy of the .env file: 
+```
+cp .env.example .env
+```
+Open the .env file and ensure the database configuration matches XAMPP: 
+```php
+DB_CONNECTION=mysql
 DB_HOST=127.0.0.1
 DB_PORT=3306
 DB_DATABASE=laravel_2048
 DB_USERNAME=root
 DB_PASSWORD=
+```
 Generate the application key and run the migrations:
 ```
 php artisan key:generate
