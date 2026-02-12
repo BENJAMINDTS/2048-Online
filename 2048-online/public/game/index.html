@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>2048 Online - By BenjaminDTS</title>
+  <link rel="stylesheet" href="style.css">
+  <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+</head>
+
+<body>
+
+  <div id="app" class="container">
+
+    <header>
+      <div class="header-left">
+        <h1>2048</h1>
+        <p>Join the numbers!</p>
+      </div>
+      <div class="header-right">
+        <div class="score-box">
+          SCORE <span>{{ score }}</span>
+        </div>
+        <button type="reset" @click="initGame" class="btn-new">New Game</button>
+      </div>
+    </header>
+
+    <div class="game-layout">
+      <div class="game-board">
+        <div class="grid">
+          <div v-for="(row, r) in grid" :key="r" class="row">
+            <div v-for="(cell, c) in row" :key="r + '-' + c + '-' + cell" class="cell-container">
+              <div :class="['tile', 'tile-' + cell]">
+                {{ cell > 0 ? cell : '' }}
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="ranking-panel">
+        <h3>🏆 Top 20 Global</h3>
+        <ul>
+          <li v-for="(player, index) in topScores" :key="index">
+            <span class="rank">#{{ index + 1 }}</span>
+            <span class="name">{{ player.player_name }}</span>
+            <span class="points">{{ player.score }}</span>
+          </li>
+        </ul>
+      </div>
+    </div>
+
+    <div v-if="gameOver" class="modal-overlay">
+      <div class="modal-content">
+        <h2>¡Partida Terminada!</h2>
+        <p>Tu puntuación final: <strong>{{ score }}</strong></p>
+
+        <div class="input-group">
+          <input type="text" v-model="playerName" placeholder="Escribe tu nombre..." maxlength="15" autofocus>
+        </div>
+
+        <div class="modal-actions">
+          <button type="reset" class="btn-cancel" @click="initGame">Reiniciar</button>
+          <button type="submit" class="btn-save" @click="saveScore">Guardar Récord</button>
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+  <script src="app.js"></script>
+</body>
+
+</html>
