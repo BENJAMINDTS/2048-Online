@@ -143,7 +143,10 @@ Start the Apache and MySQL modules.
 
 Access phpMyAdmin and create a new database called laravel_2048.
 
-### 3. Backend Configuration (Laravel) Install the necessary PHP dependencies: `Bashcomposer install`
+### 3. Backend Configuration (Laravel) Install the necessary PHP dependencies: 
+```
+composer install
+```
 Configure your environment file: Create a copy of the .env file: 
 ```
 cp .env.example .env
